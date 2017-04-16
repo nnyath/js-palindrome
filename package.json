@@ -1,0 +1,15 @@
+{
+  "name": "safe-palindrome",
+  "version": "1.0.0",
+  "description": "approach and thoughts post-mortem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "palindrome",
+    "javascript"
+  ],
+  "author": "kenny.inthirath@gmail.com",
+  "license": "MIT"
+}
