@@ -13,6 +13,9 @@ var results = {
 results.originalValid = Palindrome.original(params.valid,params.validIndex)
 results.originalInvalid = Palindrome.original(params.invalid, params.invalidIndex)
 
+results.originalImproved = Palindrome.originalImproved(params.valid)
+results.originalInvalid = Palindrome.originalImproved(params.invalid, params.invalidIndex)
+
 console.log('Safe-Palindrome')
 console.log('---------------')
 console.log(results)
