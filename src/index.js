@@ -13,7 +13,7 @@ results.originalImprovedOdd = { [params.odd.validA]: Palindrome.originalImproved
 results.JSEven = { [params.even.validA]: Palindrome.JSAPI(params.even.validA) }
 results.JSOdd = { [params.odd.validA]: Palindrome.JSAPI(params.odd.validA) }
 
-console.log('Safe-Palindrome')
-console.log('---------------')
+console.log('JS-Palindrome')
+console.log('-------------')
 console.log(results)
 
