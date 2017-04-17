@@ -18,11 +18,11 @@ Palindrome.prototype.original = function (stringA, midIndex, stringB) {
     if (midIndex < 1 || typeof midIndex !== 'number' || midIndex > stringA.length)
         throw new Error('Invalid Index Parameter')
 
-    if (stringA.length - 1 > midIndex)
+    if (stringA.length > midIndex)
         return this.original(stringA.slice(0, -1), midIndex, (stringB == null ? '' : stringB) + stringA.slice(-1))
     else
-        if (stringA.length > stringB.length)
-            return (stringA.slice(0, -1).toLowerCase() === stringB.toLowerCase())
+        if (stringB.length > stringA.length)
+            return (stringA.toLowerCase() === stringB.slice(0, -1).toLowerCase())
         else
             return stringA.toLowerCase() === stringB.toLowerCase()
 
@@ -43,11 +43,11 @@ Palindrome.prototype.originalImproved = function (stringA, midIndex, stringB) {
         if (midIndex < 1 || typeof midIndex !== 'number' || midIndex > stringA.length)
             throw new Error('Invalid Index Parameter')
 
-    if (midIndex == null || stringA.length - 1 > midIndex)
-        return this.original(stringA.slice(0, -1), midIndex == null ? Math.floor(stringA.length / 2) : midIndex, (stringB == null ? '' : stringB) + stringA.slice(-1))
+    if (midIndex == null || stringA.length > midIndex)
+        return this.originalImproved(stringA.slice(0, -1), midIndex == null ? Math.floor(stringA.length / 2) : midIndex, (stringB == null ? '' : stringB) + stringA.slice(-1))
     else
-        if (stringA.length > stringB.length)
-            return (stringA.slice(0, -1).toLowerCase() === stringB.toLowerCase())
+        if (stringB.length > stringA.length)
+            return (stringA.toLowerCase() === stringB.slice(0, -1).toLowerCase())
         else
             return stringA.toLowerCase() === stringB.toLowerCase()
 

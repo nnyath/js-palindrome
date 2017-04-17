@@ -6,10 +6,13 @@ var params = {
     validA: 'tacocat',
     validB: '',
     validIndex: Math.floor('tacocat'.length / 2),
+    validC:'eye',
+    validD:'',
+    validIndexTwo: Math.floor('eye'.length / 2),
     invalidA: 'Test1',
     invalidB: '123',
     invalidIndex: 0,
-    invalidIndexTwo: '0'
+    invalidIndexTwo: '0',
 }
 
 describe('Original - Input Args', function () {
@@ -37,10 +40,12 @@ describe('Original - Valid Palindrome', function () {
     it('should return true for valid Palindrome', function () {
         assert.isTrue(Palindrome.original(params.validA, params.validIndex, params.validB))
         assert.isTrue(Palindrome.original(params.validA, params.validIndex))
+        assert.isTrue(Palindrome.original(params.validC, params.validIndexTwo))
     })
 
     it('should return false for invalid Palindrome', function () {
         assert.isFalse(Palindrome.original('test', Math.floor('test'.length / 2)))
+        assert.isFalse(Palindrome.original('diy', Math.floor('diy'.length / 2)))
     })
 
 })
@@ -69,10 +74,12 @@ describe('Original Improved - Valid Palindrome', function () {
 
     it('should return true for valid Palindrome', function () {
         assert.isTrue(Palindrome.originalImproved(params.validA))
+        assert.isTrue(Palindrome.originalImproved(params.validC))
     })
 
     it('should return false for invalid Palindrome', function () {
         assert.isFalse(Palindrome.originalImproved('test'))
+        assert.isFalse(Palindrome.originalImproved('diy'))
     })
 
 })
