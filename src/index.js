@@ -1,29 +1,15 @@
 var Palindrome = require('./palindrome')
-
-var params = {
-    even : {
-        valid : 'imalasagnahoggohangasalami',
-        validIndex : Math.floor('imalasagnahoggohangasalami'.length/2),
-        invalid : 'notvalid',
-        invalidIndex : Math.floor('notvalid'.length/2)
-    },
-    odd : {
-        valid : 'tacocat',
-        validIndex : Math.floor('tacocat'.length/2),
-        invalid : 'novalid',
-        invalidIndex : Math.floor('novalid'.length/2)
-    }
-    
-}
+var params = require('./config')
 
 var results = {
 }
 
-results.originalValid = Palindrome.original(params.even.valid,params.even.validIndex)
-results.originalInvalid = Palindrome.original(params.even.invalid, params.even.invalidIndex)
+results.originalValidEven = {[params.even.validA] : Palindrome.original(params.even.validA,params.even.validIndex)}
+results.originalValidOdd = {[params.odd.validA] : Palindrome.original(params.odd.validA,params.odd.validIndex)}
 
-results.originalImproved = Palindrome.originalImproved(params.even.valid)
-results.originalInvalid = Palindrome.originalImproved(params.even.invalid, params.even.invalidIndex)
+results.originalImprovedEven = {[params.even.validA] : Palindrome.originalImproved(params.even.validA)}
+results.originalImprovedOdd = {[params.odd.validA] : Palindrome.originalImproved(params.odd.validA)}
+
 
 console.log('Safe-Palindrome')
 console.log('---------------')

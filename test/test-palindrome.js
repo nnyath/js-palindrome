@@ -1,35 +1,9 @@
 var expect = require('chai').expect
 var assert = require('chai').assert
-var Palindrome = require('../src/palindrome.js')
+var Palindrome = require('../src/palindrome')
+var params = require('../src/config')
 
-//Refactor to have clearer param names
-var params = {
-    even : {
-        validA: 'imalasagnahoggohangasalami',
-        validB: '',
-        validIndex: Math.floor('imalasagnahoggohangasalami'.length / 2),
-        nonA: 'test',
-        nonB: '',
-        nonIndex: Math.floor('test'.length / 2),
-        invalidA: 'Tester80',
-        invalidB: 1234,
-        invalidIndex: 0,
-        invalidIndexTwo: '0', 
-    },
-    odd : {
-        validA: 'tacocat',
-        validB: '',
-        validIndex: Math.floor('tacocat'.length / 2),
-        nonA: 'test',
-        nonB: '',
-        nonIndex: Math.floor('test'.length / 2),
-        invalidA: 'Test1',
-        invalidB: 123,
-        invalidIndex: 0,
-        invalidIndexTwo: '0',
-    }
-
-}
+//ToDo : Consider Input Length as possible constraint
 
 describe('Original - Input Args', function () {
 
@@ -59,7 +33,7 @@ describe('Original - Valid Palindrome', function () {
     })
 
     it('should return false for invalid even length palindrome', function () {
-        assert.isFalse(Palindrome.original(params.even.nonA,params.even.nonIndex))
+        assert.isFalse(Palindrome.original(params.even.nonA, params.even.nonIndex))
     })
 
     it('should return true for valid odd length palindromes', function () {
@@ -68,7 +42,7 @@ describe('Original - Valid Palindrome', function () {
     })
 
     it('should return false for invalid odd length palindrome', function () {
-        assert.isFalse(Palindrome.original(params.odd.nonA,params.odd.nonIndex))
+        assert.isFalse(Palindrome.original(params.odd.nonA, params.odd.nonIndex))
     })
 
 })
@@ -115,3 +89,45 @@ describe('Original Improved - Valid Palindrome', function () {
 
 })
 
+describe('JS API - Input Args', function () {
+
+    it('should error on invalid String input', function () {
+        expect(Palindrome.JSAPI.bind(Palindrome, params.even.invalidA)).to.throw('Invalid String Parameter')
+    })
+
+})
+
+describe('JS API - Valid Palindrome', function () {
+
+    it('should return true for valid even length palindromes', function () {
+        assert.isTrue(Palindrome.JSAPI(params.even.validA))
+    })
+
+    it('should return true for valid odd length palindromes', function () {
+        assert.isTrue(Palindrome.JSAPI(params.odd.validA))
+    })
+
+})
+
+
+//TODO: Research JS Regex method to check for Palindromes
+
+// describe('JS Regex - Input Args', function () {
+
+//     it('should error on invalid String input', function () {
+//         expect(Palindrome.JSRegex.bind(Palindrome, params.even.invalidA)).to.throw('Invalid String Parameter')
+//     })
+
+// })
+
+// describe('JS Regex - Valid Palindrome', function () {
+
+//     it('should return true for valid even length palindromes', function () {
+//         assert.isTrue(Palindrome.JSRegex(params.even.validA))
+//     })
+
+//     it('should return true for valid odd length palindromes', function () {
+//         assert.isTrue(Palindrome.JSRegex(params.odd.validA))
+//     })
+
+// })
